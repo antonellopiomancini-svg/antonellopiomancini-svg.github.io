@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Minimal static smoke test for cloud hosting: reachability, assets, and rendering.">
+  <title>Cloud Service Test Page</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-row">
+      <div>
+        <h1>Cloud Service Test Page</h1>
+        <p class="subtitle" id="build-version">Loading version…</p>
+      </div>
+      <button type="button" id="theme-toggle" aria-pressed="false" aria-label="Toggle dark mode">Dark mode</button>
+    </div>
+  </header>
+
+  <main>
+    <section aria-labelledby="about-heading">
+      <h2 id="about-heading">About</h2>
+      <p>This is a deployment smoke test. If you can read this, the host is reachable, static assets loaded, and the page rendered.</p>
+    </section>
+
+    <section aria-labelledby="status-heading">
+      <h2 id="status-heading">Status</h2>
+      <dl class="card" id="status-card">
+        <div class="row">
+          <dt>Current time</dt>
+          <dd id="clock">—</dd>
+        </div>
+        <div class="row">
+          <dt>Origin</dt>
+          <dd id="location-origin">—</dd>
+        </div>
+        <div class="row">
+          <dt>Full URL</dt>
+          <dd id="location-href">—</dd>
+        </div>
+        <div class="row">
+          <dt>User agent</dt>
+          <dd id="user-agent">—</dd>
+        </div>
+        <div class="row">
+          <dt>Viewport</dt>
+          <dd id="viewport">—</dd>
+        </div>
+        <div class="row">
+          <dt>Network</dt>
+          <dd id="online-status">—</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section aria-labelledby="health-heading">
+      <h2 id="health-heading">Health check</h2>
+      <p>Fetches <code>/healthz</code> with <code>cache: no-store</code> and reports status and round-trip time.</p>
+      <button type="button" id="health-check-btn">Run health check</button>
+      <div class="card" id="health-output" role="status" aria-live="polite">Not run yet. Press the button above.</div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Page loaded: <span id="load-timestamp">—</span></p>
+  </footer>
+</body>
+</html>
